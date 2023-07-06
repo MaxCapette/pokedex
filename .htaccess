@@ -1,0 +1,13 @@
+# Activer la réécriture d'url
+RewriteEngine On
+
+# On récupère dans l'url de la requête, l'url de base du projet
+RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
+# On la stocke dans la clé BASE_URI qui sera accessible par php avec $_SERVER['BASE_URI']
+RewriteRule ^(.*) - [E=BASE_URI:%1]
+
+# Si l'url de la requête n'est pas un fichier existant (par exemple une image que je veux pouvoir afficher)...
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# ... alors on redirige vers public/index.php
+RewriteRule .* ./public/index.php?_url=/$1 [QSA,L]
