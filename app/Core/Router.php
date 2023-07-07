@@ -24,12 +24,21 @@ $routes = [
     ],
     [
         'method' => 'GET',
-        'route' => '/pokemon',
+        'route' => '/pokemon/[i:numero]',
         'target' => [
             'controller' => MainController::class,
             'method' => 'pokemon'
         ],
         'name' => 'pokemon'
+    ],
+    [
+        'method' => 'GET',
+        'route' => '/list',
+        'target' => [
+            'controller' => MainController::class,
+            'method' => 'list'
+        ],
+        'name' => 'list'
     ]
     ];
 
@@ -38,3 +47,4 @@ $routes = [
 $_ROUTER->addRoutes($routes);
 
 $match = $_ROUTER->match();
+
