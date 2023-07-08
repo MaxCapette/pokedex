@@ -5,12 +5,12 @@
         <label class="text-white text-2xl font-bold" for="search">Rechercher un Pokémon</label>
     </div>
         <div class="flex justify-center items-center">
-            <a href="./pokemon/1">bouton</a>
-            <input class="h-12" placeholder="Exemple : Qulbutoke" type="text" name="search" id="search">
+           
+            <input class="h-12" placeholder="Exemple : <?= $viewVars['randomPokemon'] ?>" type="text" name="search" id="search">
             <button type="submit"><i><img class="m-5 h-12" src="<?= $baseUri ?>/public/img/Pokeball.png" alt=""></i></button>
             
         </div>
-        
+      
     </form>
 </section>
 

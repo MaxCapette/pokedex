@@ -13,12 +13,13 @@
     <header class="bg-slate-50/80 rounded-2xl mx-4 my-3 px-3 py-2">
         <div class="flex justify-between items-center ">
             <h1>
-                <p  class="text-red-700">Pokédex</p> 
+                <a class="text-red-700" href="<?= $_ROUTER->generate('home'); ?>">Pokédex</a>
+                
             </h1>
         
             <ul class="flex">
-                <li class="m-1 text-red-700"><a class="" href=""></a>Liste</li>
-                <li class="m-1 text-red-700"><a class="" href=""></a>Types</li>
+                <li class="m-1 text-red-700"><a href="<?= $_ROUTER->generate('list'); ?>">Liste</a></li>
+                <li class="m-1 text-red-700"><a class="" href="">Types</a></li>
             </ul>
         </div>
 </header>

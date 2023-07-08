@@ -8,9 +8,14 @@ class MainController extends CoreController
 {
     
 public function home() 
-    {  
+    {   $pokemonModel = new Pokemon();
+        $randomPokemon = $pokemonModel->random();
+
         // Appel de la méthode show héritée de CoreController
-        $this->show('home');
+        $this->show('home', [
+            'randomPokemon' => $randomPokemon
+            ]
+    );
     }
 
    
@@ -21,8 +26,7 @@ public function home()
        
         $this->show('pokemon', [
             'title' => 'Accueil',
-            'pokemon' => $pokemon
-            
+            'pokemon' => $pokemon    
         ]);
     }
 

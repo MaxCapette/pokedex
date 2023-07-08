@@ -20,12 +20,32 @@ class Pokemon {
     /**
      *                 Méthodes de la classe Pokemon
      */
+    /**
+     * Undocumented function random()
+     *
+     * @return $pokemon
+     */
+     public function random()
+     {
+        $sql = "SELECT `name` 
+                FROM `pokemon` 
+                ORDER BY RAND()
+                LIMIT 1"; 
+
+       $pdo = Database::getPDO();
+
+       $pdoStatement = $pdo->query($sql);
+
+       $pokemon = $pdoStatement->fetchColumn();
+     
+       return $pokemon;
+}
 /** 
      * Méthode permettant de récupérer la liste des pokémon classés par numéros
      */
     public function findAll()
     {
-        $sql = "SELECT *
+        $sql = "SELECT `number`, `name` 
                 FROM `pokemon` 
                 ORDER BY `number`";
 

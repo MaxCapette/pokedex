@@ -7,7 +7,7 @@ if(!empty($pokemons)) {
         <li>
             <a href="<?= $baseUri. '/pokemon/'. $pokemon->getNumber(); ?>">
                 <img class="illustration" src="<?= $baseUri . '/public/img/' . $pokemon->getNumber() . '.png' ?>" alt="<?= $pokemon->getName() ?>">
-                <div class="name"><span class="number">#<?= $pokemon->getNumber() ?></span> <?= $pokemon->getName() ?></div>
+                <div  class="text-white"><span>#<?= $pokemon->getNumber() ?></span> <?= $pokemon->getName() ?></div>
             </a>
         </li>
     <?php endforeach;
