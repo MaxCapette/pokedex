@@ -69,7 +69,8 @@ class Pokemon {
     public function find($number)
     {
         // Je fais ma requete SQL
-        $sql = "SELECT * FROM `pokemon`
+        $sql = "SELECT `name`, `hp`, `attack`, `defense`, `spe_attack`, `spe_defense`, `speed`,	`number`
+        FROM `pokemon`
         WHERE `number` = " . $number . " LIMIT 1";
 
         // On se connecte à la BDD à l'anumbere de notre outil Database. Celui-ci nous renvoie une instance de PDO connectée à la BDD.

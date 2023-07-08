@@ -2,15 +2,15 @@
 $pokemon = $viewVars['pokemon']; 
  ?>
 
-<section class="text-white flex flex-col items-center">
+<section class="text-white flex flex-col place-items-center">
     <div class="flex  m-5">
         <h2 class=" text-2xl font-bold" for="search">Détails du pokemon</h2>
     </div>
-    <div class="flex flex-wrap w-5/6">
+    <div class="flex flex-wrap place-items-center">
         <div class="px-5 ">
-        <img class="illustration" src="<?= $baseUri . '/public/img/' . $pokemon->getNumber() . '.png' ?>" alt="<?= $pokemon->getName() ?>">   
+            <img class="illustration" src="<?= $baseUri . '/public/img/' . $pokemon->getNumber() . '.png' ?>" alt="<?= $pokemon->getName() ?>">   
         </div>
-        <div class="bg-red-800 px-5 py-10 rounded-md w-1/2">
+        <div class="bg-red-800 px-5 py-10 rounded-md w-100">
             <h3 class=" text-xl font-bold">#<?= $pokemon->getNumber(); ?>   <?= $pokemon->getName(); ?></h3>
             <div class="flex">
                 <p class=" m-1 p-1 bg-green-500 rounded-md">Plante</p>
