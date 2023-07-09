@@ -27,7 +27,7 @@ class Pokemon {
      */
      public function random()
      {
-        $sql = "SELECT `name` 
+        $sql = "SELECT `name`, `number` 
                 FROM `pokemon` 
                 ORDER BY RAND()
                 LIMIT 1"; 
@@ -36,7 +36,7 @@ class Pokemon {
 
        $pdoStatement = $pdo->query($sql);
 
-       $pokemon = $pdoStatement->fetchColumn();
+       $pokemon = $pdoStatement->fetchObject(self::class);
      
        return $pokemon;
 }
