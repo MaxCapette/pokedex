@@ -43,8 +43,13 @@ class Pokemon {
 /** 
      * Méthode permettant de récupérer la liste des pokémon classés par numéros
      */
-    public function findAll()
+    public function findAll($params)
     {
+        // if ($params != null) {
+        //     $sql = "SELECT `number`, `name` 
+        //         FROM `pokemon` 
+        //         ORDER BY `number`";.
+        // }
         $sql = "SELECT `number`, `name` 
                 FROM `pokemon` 
                 ORDER BY `number`";

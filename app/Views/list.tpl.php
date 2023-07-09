@@ -2,8 +2,7 @@
 $pokemons = $viewVars['pokemons'];
 ?>
 <div class="flex justify-end">
-    <select id="countries" class=" bg-slate-50/80 rounded-2xl mx-4 my-3 px-3 py-2 text-red-700">
-   <div class=" bg-slate-50/80 rounded-2xl mx-4 my-3 px-3 py-2 text-red-700">
+    <select id="countries" class="bg-slate-50/80 rounded-2xl mx-4 my-3 px-3 py-2 text-red-700">
         <option selected>Trier par</option>
         <option value="US">Numéros</option>
         <option value="CA">Noms</option>
