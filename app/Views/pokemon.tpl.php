@@ -2,7 +2,7 @@
 $pokemon = $viewVars['pokemon'];
 ?>
 
-<section class="text-white flex flex-col place-items-center">
+<section class="text-white flex flex-col">
     <div class="flex  m-5">
         <h2 class=" text-2xl font-bold" for="search">Détails du pokemon</h2>
     </div>
