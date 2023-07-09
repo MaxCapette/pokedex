@@ -27,7 +27,7 @@ class Pokemon {
      */
      public function random()
      {
-        $sql = "SELECT `name` 
+        $sql = "SELECT `name`, `number` 
                 FROM `pokemon` 
                 ORDER BY RAND()
                 LIMIT 1"; 
@@ -36,15 +36,20 @@ class Pokemon {
 
        $pdoStatement = $pdo->query($sql);
 
-       $pokemon = $pdoStatement->fetchColumn();
+       $pokemon = $pdoStatement->fetchObject(self::class);
      
        return $pokemon;
 }
 /** 
      * Méthode permettant de récupérer la liste des pokémon classés par numéros
      */
-    public function findAll()
+    public function findAll($params)
     {
+        // if ($params != null) {
+        //     $sql = "SELECT `number`, `name` 
+        //         FROM `pokemon` 
+        //         ORDER BY `number`";.
+        // }
         $sql = "SELECT `number`, `name` 
                 FROM `pokemon` 
                 ORDER BY `number`";
