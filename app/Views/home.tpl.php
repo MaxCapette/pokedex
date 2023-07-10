@@ -1,5 +1,5 @@
 <?php
-$randomPokemon = $viewVars['randomPokemon'];
+// $randomPokemon = $viewVars['randomPokemon'];
 ?>
 
 <section class="flex flex-col items-center">

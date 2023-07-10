@@ -43,7 +43,7 @@ class Pokemon {
 /** 
      * Méthode permettant de récupérer la liste des pokémon classés par numéros
      */
-    public function findAll($params)
+    public function findAll($params = null)
     {
         // if ($params != null) {
         //     $sql = "SELECT `number`, `name` 
@@ -118,32 +118,40 @@ class Pokemon {
     /**
      * Méthode permettant de récupérer les types du Pokémon courant
      */
-    // public function getTypes()
-    // {
-    //     // On cherche dans la table de pivot "pokemon_type" les entrées qui correspondent au numéro fourni
-    //     // puis on joint cette table à la table "type" dont on récupère les champs
-    //     $sql = "SELECT `type`.*
-    //             FROM `pokemon_type`
-    //             INNER JOIN `type` ON `type`.`id` = `pokemon_type`.`type_id`
-    //             WHERE `pokemon_type`.`pokemon_number` = " . $this->getNumber();
+     public function getTypes()
+     {
+        //   On cherche dans la table de pivot "pokemon_type" les entrées qui correspondent au numéro fourni
+        //   puis on joint cette table à la table "type" dont on récupère les champs
+         $sql = "SELECT `type`.*
+                 FROM `pokemon_type`
+                 INNER JOIN `type` ON `type`.`id` = `pokemon_type`.`type_id`
+                 WHERE `pokemon_type`.`pokemon_number` = " . $this->getNumber();
 
-    //     // On récupère la connexion à la BDD
-    //     $pdo = Database::getPDO();
+        //   On récupère la connexion à la BDD
+         $pdo = Database::getPDO();
 
-    //     // On exécute la requête avec query car on souhaite pouvoir accéder
-    //     // aux données retournées par la requête
-    //     $pdoStatement = $pdo->query($sql);
+        //   On exécute la requête avec query car on souhaite pouvoir accéder
+        //   aux données retournées par la requête
+         $pdoStatement = $pdo->query($sql);
 
-    //     // On récupère le résultat  et on instancie la classe Type avec les infos récupérées
-    //     $types = $pdoStatement->fetchAll(PDO::FETCH_CLASS, Type::class);
+        //   On récupère le résultat  et on instancie la classe Type avec les infos récupérées
+         $types = $pdoStatement->fetchAll(PDO::FETCH_CLASS, Type::class);
 
-    //     return $types;
-    // }
+         return $types;
+     }
+     public function findByInput($input)
+     {
+        $sql = "SELECT `name`, `number`, `type`
+        FROM `pokemon`
+        INNER JOIN `pokemon_type` ON `pokemon_type`.`pokemon_number` = `pokemon`.`number`
+        WHERE (`name` = :input) OR 
+                  (`number` = :input) OR
+                  (`pokemon_type`.`pokemon_name` = :input)";
+     }
 
 
 
-
-
+          
 
 
 
